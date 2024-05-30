@@ -1,0 +1,23 @@
+.form {
+  border: 1px solid black;
+  border-radius: 4px;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 10px;
+  padding: 8px;
+}
+
+.myInput {
+  width: 280px;
+}
+
+.formBtn {
+  width: auto;
+  margin: 0 auto;
+}
+
+span {
+  color: red;
+}
