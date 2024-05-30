@@ -17,6 +17,7 @@ function SearchBar({ onSubmit }) {
             toast.error("Please enter a search images");
           } else {
             onSubmit(values.query);
+            console.log(values.query);
           }
           setSubmitting(false);
         }}
