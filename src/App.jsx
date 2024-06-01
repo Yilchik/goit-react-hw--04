@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import "./App.css";
-import axios from "axios";
 import SearchBar from "./components/SearchBar/SearchBar";
 import ImageGallery from "./components/ImageGallery/ImageGallery";
 import ErrorMessage from "./components/ErrorMessage/ErrorMessage";
@@ -24,7 +23,7 @@ function App() {
         const data = await getArticlesApi();
         console.log(data);
         setImages((prev) => [...prev, ...data]);
-      } catch (error) {
+      } catch (e) {
         setError(true);
       } finally {
         setLoading(false);
