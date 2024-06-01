@@ -6,8 +6,8 @@ const Loader = () => {
     <div className={css.loader}>
       <Hourglass
         visible={true}
-        height="80"
-        width="80"
+        height="40"
+        width="40"
         ariaLabel="hourglass-loading"
         wrapperStyle={{}}
         wrapperClass=""
