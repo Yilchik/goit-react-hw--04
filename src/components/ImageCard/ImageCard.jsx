@@ -9,8 +9,8 @@ function ImageCard({ image, onImageClick }) {
         className={css.image}
       />
       <div className={css.overlay}>
-        <p>{image.user.name}</p>
-        <p>{image.likes} likes</p>
+        <p>Author: {image.user.name}</p>
+        <p className={css.imgTitle}>Likes: {image.likes}</p>
       </div>
     </div>
   );
