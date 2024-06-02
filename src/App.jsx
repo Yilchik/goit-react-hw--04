@@ -14,7 +14,7 @@ function App() {
   const [error, setError] = useState(false);
   const [query, setQuery] = useState("");
   const [page, setPage] = useState(1);
-  const [selectedImage, setSelectedImage] = useState(null);
+  const [selectedImage, setSelectedImage] = useState(false);
 
   useEffect(() => {
     const searchImages = async () => {
@@ -54,11 +54,12 @@ function App() {
   return (
     <div>
       <SearchBar onSubmit={handleSubmit} />
-      {images.length > 0 && <ImageGallery images={images} />}
       {error && (
         <ErrorMessage message="Whoops, something went wrong! Please try reloading this page!" />
       )}
+
       <ImageGallery images={images} onImageClick={handleImageClick} />
+
       {loading && <Loader />}
       {images.length > 0 && !loading && (
         <LoadMoreBtn onClick={handleLoadMore} />

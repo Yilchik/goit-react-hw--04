@@ -10,7 +10,6 @@ const ImageModal = ({ isOpen, onRequestClose, image }) => {
       onRequestClose={onRequestClose}
       contentLabel="Image Modal"
       className={css.modal}
-      overlayClassName={css.overlay}
     >
       <img
         src={image.urls.regular}
