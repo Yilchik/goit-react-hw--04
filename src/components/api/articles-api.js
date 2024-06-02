@@ -12,5 +12,5 @@ export const getArticlesApi = async (searchQuery, page) => {
       page,
     },
   });
-  return data.hits;
+  return data.results;
 };

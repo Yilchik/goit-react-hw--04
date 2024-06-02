@@ -37,7 +37,8 @@ function App() {
   };
 
   const handleLoadMore = async () => {
-    setPage((prevPage) => prevPage + 1);
+    // setPage((prevPage) => prevPage + 1);
+    setPage(page + 1);
   };
 
   return (
