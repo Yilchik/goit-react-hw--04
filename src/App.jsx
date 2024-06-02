@@ -4,8 +4,9 @@ import SearchBar from "./components/SearchBar/SearchBar";
 import ImageGallery from "./components/ImageGallery/ImageGallery";
 import ErrorMessage from "./components/ErrorMessage/ErrorMessage";
 import Loader from "./components/Loader/Loader";
-import { getArticlesApi } from "./components/api/articles-api";
+import { getArticlesApi } from "./api/articles-api";
 import LoadMoreBtn from "./components/LoadMoreBtn/LoadMoreBtn";
+import ImageModal from "./components/ImageModal/ImageModal";
 
 function App() {
   const [images, setImages] = useState([]);
@@ -13,6 +14,7 @@ function App() {
   const [error, setError] = useState(false);
   const [query, setQuery] = useState("");
   const [page, setPage] = useState(1);
+  const [selectedImage, setSelectedImage] = useState(null);
 
   useEffect(() => {
     const searchImages = async () => {
@@ -41,6 +43,14 @@ function App() {
     setPage(page + 1);
   };
 
+  const handleImageClick = (image) => {
+    setSelectedImage(image);
+  };
+
+  const handleCloseModal = () => {
+    setSelectedImage(null);
+  };
+
   return (
     <div>
       <SearchBar onSubmit={handleSubmit} />
@@ -48,9 +58,17 @@ function App() {
       {error && (
         <ErrorMessage message="Whoops, something went wrong! Please try reloading this page!" />
       )}
+      <ImageGallery images={images} onImageClick={handleImageClick} />
       {loading && <Loader />}
       {images.length > 0 && !loading && (
         <LoadMoreBtn onClick={handleLoadMore} />
+      )}
+      {selectedImage && (
+        <ImageModal
+          isOpen={Boolean(selectedImage)}
+          onRequestClose={handleCloseModal}
+          image={selectedImage}
+        />
       )}
     </div>
   );
