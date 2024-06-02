@@ -10,6 +10,7 @@ export const getArticlesApi = async (searchQuery, page) => {
     params: {
       query: searchQuery,
       page,
+      hitsPerPage: 12,
     },
   });
   return data.results;

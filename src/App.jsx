@@ -18,6 +18,7 @@ function App() {
     const searchImages = async () => {
       try {
         setLoading(true);
+        setError(false);
         const data = await getArticlesApi(query, page);
         console.log(data);
         setImages((prev) => [...prev, ...data]);
